@@ -1,6 +1,7 @@
 
 
 import { AuthContext } from '@/provider/AuthProvider'
+import SocialLogin from '@/Shared/SocialLogin'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
@@ -89,7 +90,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
-      {/* <SocialLogin></SocialLogin> */}
+      <SocialLogin></SocialLogin>
     </div>
   </div>
 
