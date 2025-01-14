@@ -25,10 +25,10 @@ const PopularCamps = () => {
                 <p className="text-sm text-gray-500 mb-2">{camp.location}</p>
                 <p className="text-sm text-gray-500 mb-2">{camp.dateTime}</p>
                 <p className="text-lg text-gray-800 font-bold mb-2">${camp.campFees}</p>
-                <p className="text-sm text-gray-500 mb-2">Healthcare Professional: {camp.healthcareProfessional}</p>
+                <p className="text-sm text-gray-500 mb-2">Healthcare Professional: {camp.healthcareProfessionalName}</p>
                 <p className="text-sm text-gray-500 mb-4">Participants: {camp.participantCount}</p>
 
-                <Link to={`/camps/${camp.id}`} className="text-blue-600 hover:underline text-sm">
+                <Link to={`/camp-details/${camp._id}`} className="text-blue-600 hover:underline text-sm">
                   View Camp Details
                 </Link>
               </div>

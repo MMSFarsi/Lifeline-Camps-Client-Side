@@ -1,3 +1,4 @@
+import useAuth from "@/Hooks/useAuth";
 import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -8,6 +9,7 @@ const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}
 const AddCamp = () => {
   const { register, handleSubmit, formState: { errors },} = useForm();
   const axiosPublic=useAxiosPublic()
+  const{user}=useAuth()
   const [imagePreview, setImagePreview] = useState(null);
     const onSubmit = async (data) => {
     console.log(data);
@@ -28,7 +30,8 @@ const AddCamp = () => {
             healthcareProfessionalName:data.healthcareProfessionalName,
             location:data.location,
             participantCount:0,
-            image:res.data.data.display_url
+            image:res.data.data.display_url,
+            AdminName: user.email,
         }
 
         const campRes= await axiosPublic.post('/camps',campDetails);
