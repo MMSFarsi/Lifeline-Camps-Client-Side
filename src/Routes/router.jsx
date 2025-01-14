@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import MainLayout from "@/Layout/MainLayout";
+import AddCamp from "@/Pages/AddCamp/AddCamp";
 import Home from "@/Pages/Home/Home";
 import Login from "@/Pages/JoinUs/Login";
 import Register from "@/Pages/JoinUs/Register";
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
         {
           path:"/signUp",
           element:<Register></Register>
+        },
+        {
+          path:"/addCamp",
+          element:<AddCamp></AddCamp>
         },
       ]
     }
