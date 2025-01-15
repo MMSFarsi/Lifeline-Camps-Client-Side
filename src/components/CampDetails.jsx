@@ -33,7 +33,8 @@ const CampDetails = () => {
             healthcareProfessionalName: camp.healthcareProfessionalName,
             applicantName: user.displayName,
             applicantEmail: user.email,
-            PaymentStatus:"Pending"
+            paymentStatus:false,
+            paymentConfirmed:false
             
         };
         axiosPublic.post('/applicant',participantData)
