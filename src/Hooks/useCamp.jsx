@@ -13,7 +13,7 @@ const useCamp = () => {
             return res.data
         }
     })
-        return [camps,loading,refetch]
+        return [camps,refetch,loading]
 
   
 }

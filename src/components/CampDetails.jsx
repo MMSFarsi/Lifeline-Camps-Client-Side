@@ -7,7 +7,7 @@ import useAxiosPublic from '@/Hooks/useAxiosPublic';
 
 const CampDetails = () => {
     const { id } = useParams();
-    const [camps] = useCamp();
+    const [camps,refetch] = useCamp();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const axiosPublic=useAxiosPublic()
     const {user}=useAuth()
@@ -38,10 +38,12 @@ const CampDetails = () => {
         axiosPublic.post('/applicant',participantData)
         .then(res=>{
             console.log(res.data);
+            refetch()
         })
-      
+        
         reset();
         setIsModalOpen(false);
+       
     };
 
     return (

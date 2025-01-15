@@ -21,7 +21,7 @@ const Navbar = () => {
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/dashboard/organizerProfile">Dashboard</Link>
       </Menu.Item>
       <Menu.Item danger onClick={handleLogout}>
         Logout
