@@ -8,10 +8,15 @@ import AddCamp from "@/Pages/Dashboard/Admin/AddCamp/AddCamp";
 import AdminProfile from "@/Pages/Dashboard/Admin/AdminProfile/AdminProfile";
 import ManageCamp from "@/Pages/Dashboard/Admin/ManageCamp/ManageCamp";
 import ManageRegisteredCamps from "@/Pages/Dashboard/ManageRegisteredCamps/ManageRegisteredCamps";
+import Analytics from "@/Pages/Dashboard/UserDashboard/Analytics";
+import ParticipantProfile from "@/Pages/Dashboard/UserDashboard/ParticipantProfile";
+import PaymentHistory from "@/Pages/Dashboard/UserDashboard/PaymentHistory";
+import RegisteredCamps from "@/Pages/Dashboard/UserDashboard/RegisteredCamps";
 import Home from "@/Pages/Home/Home";
 import Login from "@/Pages/JoinUs/Login";
 import Register from "@/Pages/JoinUs/Register";
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute.jsx/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -43,7 +48,7 @@ export const router = createBrowserRouter([
     },
     {
       path:'dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
         {
           path:'addCamp',
@@ -60,6 +65,24 @@ export const router = createBrowserRouter([
         {
           path:'manageRegisteredCamps',
           element:<ManageRegisteredCamps></ManageRegisteredCamps>
+        },
+
+        // USer Route
+        {
+          path:'analytics',
+          element:<Analytics></Analytics>
+        },
+        {
+          path:'participantProfile',
+          element:<ParticipantProfile></ParticipantProfile>
+        },
+        {
+          path:'registeredCamps',
+          element:<RegisteredCamps></RegisteredCamps>
+        },
+        {
+          path:'paymentHistory',
+          element:<PaymentHistory></PaymentHistory>
         },
       ]
     }

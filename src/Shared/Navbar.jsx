@@ -6,6 +6,7 @@ import { MenuOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   const handleLogout = () => {
@@ -37,7 +38,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-2">
             <Link to="/" className="flex items-center space-x-2">
               <img src="/logo.png" alt="Logo" className="h-8 w-8" />
-              <span className="text-xl font-bold text-gray-800">MedCamp</span>
+              <span className="text-xl font-bold text-gray-800">Lifeline Camps</span>
             </Link>
           </div>
 
@@ -52,21 +53,14 @@ const Navbar = () => {
             >
               Available Camps
             </Link>
-            <Link
-              to="/addCamp"
-              className="text-gray-600 hover:text-green-500"
-            >
-              Add a Camp
-            </Link>
-            {!user && (
-              <Link to="/join">
-                <Button type="primary">Join Us</Button>
-              </Link>
-            )}
           </div>
 
           {/* Profile Dropdown or Mobile Menu Toggle */}
-          <div className="flex items-center space-x-4">
+        {
+          !user?   <Link to="/login">
+          <Button type="primary">Join Us</Button>
+        </Link>:<>
+        <div className="flex items-center space-x-4">
             {user ? (
               <Dropdown overlay={menu} trigger={['click']} placement="bottomRight">
                 <img
@@ -91,6 +85,10 @@ const Navbar = () => {
               onClick={() => setDrawerOpen(true)}
             />
           </div>
+        </>
+        }
+
+        
         </div>
       </div>
 

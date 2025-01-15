@@ -1,5 +1,6 @@
 
 
+import useAxiosPublic from '@/Hooks/useAxiosPublic'
 import { AuthContext } from '@/provider/AuthProvider'
 import SocialLogin from '@/Shared/SocialLogin'
 import { useContext } from 'react'
@@ -7,6 +8,7 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
 const Register = () => {
+  const axiosPublic=useAxiosPublic()
   const { register, handleSubmit, formState: { errors }, } = useForm()
   const { createUser, updateUserProfile } = useContext(AuthContext)
   const onSubmit = (data) => {
@@ -15,6 +17,17 @@ const Register = () => {
     .then(result=>{
       console.log(result);
       updateUserProfile(data.name, data.photo)
+      .then(()=>{
+        // save to db
+        const userInfo={
+          name:data.name,
+          email: data.email
+        }
+        axiosPublic.post('/users',userInfo)
+        .then(res=>{
+          console.log(res.data);
+        })
+      })
     })
     
   }
