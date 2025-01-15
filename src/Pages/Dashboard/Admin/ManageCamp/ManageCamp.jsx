@@ -1,12 +1,13 @@
-import useAxiosPublic from "@/Hooks/useAxiosPublic"
+
+import useAxiosSecure from "@/Hooks/useAxiosSecure"
 import useCamp from "@/Hooks/useCamp"
 
 const ManageCamp = () => {
   const [camps,refetch]=useCamp()
-  const axiosPublic=useAxiosPublic()
+  const axiosSecure=useAxiosSecure()
 
   const handleDeleteItem=async(camp)=>{
-    const res = await axiosPublic.delete(`/camp/${camp._id}`)
+    const res = await axiosSecure.delete(`/camp/${camp._id}`)
       console.log(res.data);
       refetch(); 
   }
