@@ -1,4 +1,5 @@
 import useAuth from "@/Hooks/useAuth";
+import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -9,13 +10,14 @@ const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}
 const AddCamp = () => {
   const { register, handleSubmit, formState: { errors },} = useForm();
  const axiosSecure=useAxiosSecure()
+ const axiosPublic=useAxiosPublic()
   const{user}=useAuth()
   const [imagePreview, setImagePreview] = useState(null);
     const onSubmit = async (data) => {
     console.log(data);
     // image uploat to bb and get url
     const imageFile={image: data.image[0]}
-    const res=await axiosSecure.post(image_hosting_api,imageFile,{
+    const res=await axiosPublic.post(image_hosting_api,imageFile,{
         headers:{
             'content-type':'multipart/form-data'
         }

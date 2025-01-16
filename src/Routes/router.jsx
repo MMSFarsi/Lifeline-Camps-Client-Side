@@ -17,6 +17,7 @@ import Login from "@/Pages/JoinUs/Login";
 import Register from "@/Pages/JoinUs/Register";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute.jsx/PrivateRoute";
+import AdminRoute from "./AdminRoute/AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -52,19 +53,19 @@ export const router = createBrowserRouter([
       children:[
         {
           path:'addCamp',
-          element:<AddCamp></AddCamp>
+          element:<AdminRoute><AddCamp></AddCamp></AdminRoute>
         },
         {
           path:'organizerProfile',
-          element:<AdminProfile></AdminProfile>
+          element:<AdminRoute><AdminProfile></AdminProfile></AdminRoute>
         },
         {
           path:'manageCamp',
-          element:<ManageCamp></ManageCamp>
+          element:<AdminRoute><ManageCamp></ManageCamp></AdminRoute>
         },
         {
           path:'manageRegisteredCamps',
-          element:<ManageRegisteredCamps></ManageRegisteredCamps>
+          element:<AdminRoute><ManageRegisteredCamps></ManageRegisteredCamps></AdminRoute>
         },
 
         // USer Route
