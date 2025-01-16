@@ -37,7 +37,7 @@ const Navbar = () => {
           {/* Logo and Website Name */}
           <div className="flex items-center space-x-2">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="/logo.png" alt="Logo" className="h-8 w-8" />
+              <img src="https://img.icons8.com/plasticine/100/medical-doctor.png" alt="Logo" className="h-8 w-8" />
               <span className="text-xl font-bold text-gray-800">Lifeline Camps</span>
             </Link>
           </div>

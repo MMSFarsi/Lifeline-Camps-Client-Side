@@ -6,7 +6,7 @@ import useAuth from "./useAuth"
 const useRegCamp = () => {
     const axiosSecure=useAxiosSecure()
     const {user}=useAuth()
-    const {data:regCamp=[]}=useQuery({
+    const {data:regCamp=[],refetch}=useQuery({
         queryKey:['regCamp',user?.email],
         queryFn:async()=>{
             const res=await axiosSecure.get(`/applicant?email=${user.email}`);
@@ -14,7 +14,7 @@ const useRegCamp = () => {
         }
     })
 
-    return[regCamp]
+    return[regCamp,refetch]
  
 }
 

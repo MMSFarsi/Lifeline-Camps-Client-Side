@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
+
+import useAxiosSecure from '@/Hooks/useAxiosSecure';
 import useRegCamp from '@/Hooks/useRegCamp';
 
 const RegisteredCamps = () => {
-  const [regCamp] = useRegCamp();
+  const axiosSecure=useAxiosSecure()
+  const [regCamp,refetch] = useRegCamp();
+  const handleCancel=async(camp)=>{
+    const res = await axiosSecure.delete(`/applicant/${camp._id}`)
+      console.log(res.data);
+      refetch()
+      
+  }
 
   return (
     <div className="py-10 bg-gray-50">
@@ -42,7 +50,7 @@ const RegisteredCamps = () => {
                 <tr key={camp.id} className="hover:bg-gray-50">
                   <td className="border border-gray-200 px-4 py-2">{camp.campName}</td>
                   <td className="border border-gray-200 px-4 py-2">${camp.campFees}</td>
-                  <td className="border border-gray-200 px-4 py-2">{camp.participantName}</td>
+                  <td className="border border-gray-200 px-4 py-2">{camp.applicantName}</td>
                   <td className="border border-gray-200 px-4 py-2">
                     {camp.paymentStatus ? (
                       <span className="text-green-600 font-semibold">Paid</span>
