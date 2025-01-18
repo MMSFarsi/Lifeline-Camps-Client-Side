@@ -9,7 +9,7 @@ const AdminRoute = ({children}) => {
     const [isAdmin,isAdminLoading]=useAdmin()
    
     if(loading || isAdminLoading){
-        return <progress className="progress w-56 "></progress>
+        return  <img src="https://i.ibb.co.com/Gvvsc4p/66.gif" alt="" />
     }
     if(user && isAdmin){
         return children

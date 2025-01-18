@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Menu, Dropdown, Button, Drawer } from "antd";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "@/provider/AuthProvider";
 import { MenuOutlined } from "@ant-design/icons";
+import useAdmin from "@/Hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const [isAdmin]=useAdmin()
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   const handleLogout = () => {
@@ -22,7 +23,12 @@ const Navbar = () => {
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item>
-        <Link to="/dashboard/organizerProfile">Dashboard</Link>
+      {
+      user && isAdmin && <NavLink to='/dashboard/organizerProfile'>DashBoard</NavLink> 
+    }
+    {
+      user && !isAdmin &&  <NavLink to='/dashboard/participantProfile'>DashBoard</NavLink> 
+    }
       </Menu.Item>
       <Menu.Item danger onClick={handleLogout}>
         Logout

@@ -1,14 +1,41 @@
-import useRegCamp from '@/Hooks/useRegCamp'
-import React from 'react'
+import useAxiosSecure from '@/Hooks/useAxiosSecure';
+import useRegCamp from '@/Hooks/useRegCamp';
+import React from 'react';
 
 const ManageRegisteredCamps = () => {
-  const [regCamp]=useRegCamp()
- 
+  const axiosSecure=useAxiosSecure()
+  const [regCamp,refetch] = useRegCamp();
+  const handleCancel=async(camp)=>{
+    const res = await axiosSecure.delete(`/applicant/${camp._id}`)
+      console.log(res.data);
+      refetch()
+      
+  }
+
+  const handleConfirm = (id) => {
+    axiosSecure.patch(`/applicant/${id}`, { paymentConfirmed: true })
+      .then((response) => {
+        if (response.data.modifiedCount > 0) {
+          alert('Confirmation status updated successfully');
+          refetch(); 
+        } else {
+          alert('Failed to update confirmation status');
+        }
+      })
+      .catch((error) => {
+        console.error('Error updating confirmation status:', error);
+        alert('An error occurred while updating confirmation status');
+      });
+  };
+  
+
+
+
   return (
     <div className="py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-          Registered Camps: {regCamp.length}
+          Manage  Registered Camps: {regCamp.length}
         </h2>
 
         {regCamp.length === 0 ? (
@@ -47,32 +74,27 @@ const ManageRegisteredCamps = () => {
                     {camp.paymentStatus ? (
                       <span className="text-green-600 font-semibold">Paid</span>
                     ) : (
-                      <button
-                        onClick={() => handlePayment(camp)}
-                        className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700"
-                      >
-                        Pay
-                      </button>
+                      <span className="text-red-600 font-semibold">Unpaid</span>
                     )}
                   </td>
                   <td className="border border-gray-200 px-4 py-2">
-                    {camp.paymentConfirmed ? 'Confirmed' : 'Pending'}
+                    {camp.paymentStatus && camp.paymentConfirmed ? (
+                      <h2 className='text-green-600 font-semibold'>Confirmed</h2>
+                    ) : camp.paymentStatus && !camp.paymentConfirmed ? (
+                      <button  onClick={() => handleConfirm(camp._id)} className="px-1 bg-blue-500 font-medium text-white py-2 rounded-md">Click To Confirm</button>
+                    ) : (
+                      <p className='text-red-600 font-semibold '>Pending</p>
+                    )}
                   </td>
+
                   <td className="border border-gray-200 px-4 py-2 text-center space-x-2">
                     <button
-                      onClick={() => handleFeedback(camp)}
-                      className={`px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 ${
-                        camp.paymentConfirmed ? '' : 'hidden'
-                      }`}
-                    >
-                      Feedback
-                    </button>
-                    <button
                       onClick={() => handleCancel(camp)}
-                      className={`px-4 py-2 text-sm bg-red-600 text-white rounded-md hover:bg-red-700 ${
-                        camp.paymentStatus ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}
-                      disabled={camp.paymentStatus}
+                      className={`px-4 py-2 text-sm bg-red-600 text-white rounded-md hover:bg-red-700 ${camp.paymentStatus && camp.paymentConfirmed
+                          ? 'opacity-50 cursor-not-allowed'
+                          : ''
+                        }`}
+                      disabled={camp.paymentStatus && camp.paymentConfirmed}
                     >
                       Cancel
                     </button>
@@ -84,7 +106,7 @@ const ManageRegisteredCamps = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ManageRegisteredCamps
+export default ManageRegisteredCamps;
