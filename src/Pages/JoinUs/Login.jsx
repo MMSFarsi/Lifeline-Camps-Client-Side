@@ -24,13 +24,7 @@ const Login = () => {
         signInUser(email,password)
         .then(result=>{
           console.log(result.user)
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Login Succesfull",
-            showConfirmButton: false,
-            timer: 1500
-          });
+         
           navigate('/')
         })
     }
@@ -74,7 +68,7 @@ const Login = () => {
           </div>
        
           <div>
-            <button disabled={false} className="w-full py-2 px-4 bg-[#484848] text-white font-semibold rounded-lg transition">
+            <button  className="w-full py-2 px-4 bg-[#484848] text-white font-semibold rounded-lg transition">
               Login
             </button>
           </div>
