@@ -1,6 +1,7 @@
 
 import useAxiosSecure from '@/Hooks/useAxiosSecure';
 import useRegCamp from '@/Hooks/useRegCamp';
+import { Link } from 'react-router-dom';
 
 const RegisteredCamps = () => {
   const axiosSecure=useAxiosSecure()
@@ -55,12 +56,12 @@ const RegisteredCamps = () => {
                     {camp.paymentStatus ? (
                       <span className="text-green-600 font-semibold">Paid</span>
                     ) : (
-                      <button
-                        onClick={() => handlePayment(camp)}
+                      <Link to={`/dashboard/payment/${camp._id}`}
+                        // onClick={() => handlePayment(camp)}
                         className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700"
                       >
                         Pay
-                      </button>
+                      </Link>
                     )}
                   </td>
                   <td className="border border-gray-200 px-4 py-2">

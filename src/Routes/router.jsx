@@ -18,6 +18,7 @@ import Register from "@/Pages/JoinUs/Register";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute.jsx/PrivateRoute";
 import AdminRoute from "./AdminRoute/AdminRoute";
+import Payment from "@/Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -85,6 +86,10 @@ export const router = createBrowserRouter([
           path:'paymentHistory',
           element:<PaymentHistory></PaymentHistory>
         },
+        {
+          path:'payment/:id',
+          element:<Payment></Payment>
+        }
       ]
     }
   ])
