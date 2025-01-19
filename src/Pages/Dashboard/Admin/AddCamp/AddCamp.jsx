@@ -3,12 +3,13 @@ import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 
 const image_hosting_key=import.meta.env.VITE_IMAGE_HOSTING;
 const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const AddCamp = () => {
-  const { register, handleSubmit, formState: { errors },} = useForm();
+  const { register, handleSubmit, reset,formState: { errors },} = useForm();
  const axiosSecure=useAxiosSecure()
  const axiosPublic=useAxiosPublic()
   const{user}=useAuth()
@@ -38,6 +39,10 @@ const AddCamp = () => {
 
         const campRes= await axiosSecure.post('/camps',campDetails);
         console.log(campRes.data);
+        if(campRes.data.insertedId){
+          toast.success('Camp Added Successfully')
+          reset()
+        }
     }
     console.log('image url',res.data);
 

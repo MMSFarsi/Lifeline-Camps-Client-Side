@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAuth from '@/Hooks/useAuth';
 import useAxiosPublic from '@/Hooks/useAxiosPublic';
+import toast from 'react-hot-toast';
 
 const CampDetails = () => {
     const { id } = useParams();
@@ -40,6 +41,9 @@ const CampDetails = () => {
         axiosPublic.post('/applicant',participantData)
         .then(res=>{
             console.log(res.data);
+            if(res.data.insertedId){
+                toast.success('Camp Registration Successfully Submit.Go to Dashboard & Payment Now.')
+            }
             refetch()
         })
         

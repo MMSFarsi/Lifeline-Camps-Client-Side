@@ -3,7 +3,8 @@ import useAxiosSecure from '@/Hooks/useAxiosSecure';
 import useRegCamp from '@/Hooks/useRegCamp';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -15,15 +16,18 @@ const CheckoutForm = () => {
   const { id } = useParams();
   const [regCamp]=useRegCamp()
   const {user}=useAuth()
+  const navigate=useNavigate()
   const payableMoney=regCamp.find(camp => camp._id === id);
   console.log(payableMoney?.campFees  );
 
   useEffect(()=>{
+  if(payableMoney.campFees>0){
     axiosSecure.post('/create-payment-intent',{price:payableMoney?.campFees})
     .then(res=>{
       console.log(res.data.clientSecret);
       setClientSecret(res.data.clientSecret)
     })
+  }
   },[axiosSecure,payableMoney?.campFees])
 
   const handleSubmit = async(e) => {
@@ -74,7 +78,10 @@ const CheckoutForm = () => {
 
         }
       const res=await  axiosSecure.post('/payment',payment);
-      console.log('Payment save',res);
+     if(res.data?.paymentResult?.insertedId){
+      toast.success('Payment Successful')
+     }
+      navigate('/dashboard/registeredCamps')
       }
     }
   
