@@ -19,6 +19,7 @@ import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute.jsx/PrivateRoute";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import Payment from "@/Pages/Dashboard/Payment/Payment";
+import AddReview from "@/Pages/Dashboard/UserDashboard/AddReview";
 
 export const router = createBrowserRouter([
     {
@@ -89,7 +90,12 @@ export const router = createBrowserRouter([
         {
           path:'payment/:id',
           element:<Payment></Payment>
-        }
+        },
+        {
+          path:'addreview/:id',
+          element:<AddReview></AddReview>
+        },
+
       ]
     }
   ])

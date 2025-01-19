@@ -7,8 +7,9 @@ import useAdmin from "@/Hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [isAdmin]=useAdmin()
+  const [isAdmin] = useAdmin()
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+
 
   const handleLogout = () => {
     logOut()
@@ -23,12 +24,12 @@ const Navbar = () => {
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item>
-      {
-      user && isAdmin && <NavLink to='/dashboard/organizerProfile'>DashBoard</NavLink> 
-    }
-    {
-      user && !isAdmin &&  <NavLink to='/dashboard/participantProfile'>DashBoard</NavLink> 
-    }
+        {
+          user && isAdmin && <NavLink to='/dashboard/organizerProfile'>DashBoard</NavLink>
+        }
+        {
+          user && !isAdmin && <NavLink to='/dashboard/participantProfile'>DashBoard</NavLink>
+        }
       </Menu.Item>
       <Menu.Item danger onClick={handleLogout}>
         Logout
@@ -37,64 +38,73 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="flex justify-between items-center h-16">
-          {/* Logo and Website Name */}
+
           <div className="flex items-center space-x-2">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="https://img.icons8.com/plasticine/100/medical-doctor.png" alt="Logo" className="h-8 w-8" />
-              <span className="text-xl font-bold text-gray-800">Lifeline Camps</span>
+
+              <span className="text-2xl font-bold text-gray-800">Lifeline Camps</span>
             </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6">
-            <Link to="/" className="text-gray-600 hover:text-green-500">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? 'text-[#B354A6] font-semibold' : 'text-gray-600 hover:text-[#B354A6]'
+              }
+            >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/available-camps"
-              className="text-gray-600 hover:text-green-500"
+              className={({ isActive }) =>
+                isActive ? 'text-[#B354A6] font-semibold' : 'text-gray-600 hover:text-[#B354A6]'
+              }
             >
               Available Camps
-            </Link>
+            </NavLink>
+
           </div>
 
           {/* Profile Dropdown or Mobile Menu Toggle */}
-        {
-          !user?   <Link to="/login">
-          <Button type="primary">Join Us</Button>
-        </Link>:<>
-        <div className="flex items-center space-x-4">
-            {user ? (
-              <Dropdown overlay={menu} trigger={['click']} placement="bottomRight">
-                <img
-                  src={user.photoURL || "https://via.placeholder.com/150"}
-                  alt="User Profile"
-                  className="w-10 h-10 rounded-full border cursor-pointer"
+          {
+            !user ? <Link to="/login">
+              <Button className="px-7  font-semibold py-5 rounded-2xl bg-[#B354A6] text-white">Join Us</Button>
+            </Link> : <>
+              <div className="flex items-center space-x-4">
+                {user ? (
+                  <Dropdown overlay={menu} trigger={['click']} placement="bottomRight">
+                    <img
+                      src={user.photoURL || "https://via.placeholder.com/150"}
+                      alt="User Profile"
+                      className="w-10 h-10 rounded-full border cursor-pointer"
+                    />
+                  </Dropdown>
+                ) : (
+                  <Button
+                    type="primary"
+                    className="md:hidden"
+                    onClick={() => setDrawerOpen(true)}
+                  >
+                    <MenuOutlined />
+                  </Button>
+                )}
+                <Button
+                  type="text"
+                  icon={<MenuOutlined />}
+                  className="md:hidden"
+                  onClick={() => setDrawerOpen(true)}
                 />
-              </Dropdown>
-            ) : (
-              <Button
-                type="primary"
-                className="md:hidden"
-                onClick={() => setDrawerOpen(true)}
-              >
-                <MenuOutlined />
-              </Button>
-            )}
-            <Button
-              type="text"
-              icon={<MenuOutlined />}
-              className="md:hidden"
-              onClick={() => setDrawerOpen(true)}
-            />
-          </div>
-        </>
-        }
+              </div>
+            </>
+          }
 
-        
+
         </div>
       </div>
 

@@ -48,7 +48,7 @@ const RegisteredCamps = () => {
             </thead>
             <tbody>
               {regCamp.map((camp) => (
-                <tr key={camp.id} className="hover:bg-gray-50">
+                <tr key={camp._id} className="hover:bg-gray-50">
                   <td className="border border-gray-200 px-4 py-2">{camp.campName}</td>
                   <td className="border border-gray-200 px-4 py-2">${camp.campFees}</td>
                   <td className="border border-gray-200 px-4 py-2">{camp.applicantName}</td>
@@ -57,7 +57,7 @@ const RegisteredCamps = () => {
                       <span className="text-green-600 font-semibold">Paid</span>
                     ) : (
                       <Link to={`/dashboard/payment/${camp._id}`}
-                        // onClick={() => handlePayment(camp)}
+                       
                         className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700"
                       >
                         Pay
@@ -68,14 +68,14 @@ const RegisteredCamps = () => {
                     {camp.paymentConfirmed ? 'Confirmed' : 'Pending'}
                   </td>
                   <td className="border border-gray-200 px-4 py-2 text-center space-x-2">
-                    <button
-                      onClick={() => handleFeedback(camp)}
+                   {camp.reviewStatus? <button disabled className='px-4 py-2 text-sm bg-green-600 text-white rounded-md  '>Reviewed</button> : <Link
+                      to={`/dashboard/addreview/${camp._id}`}
                       className={`px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 ${
-                        camp.paymentConfirmed ? '' : 'hidden'
+                        camp.paymentConfirmed  ? '' : 'hidden'
                       }`}
                     >
                       Feedback
-                    </button>
+                    </Link> }
                     <button
                       onClick={() => handleCancel(camp)}
                       className={`px-4 py-2 text-sm bg-red-600 text-white rounded-md hover:bg-red-700 ${
