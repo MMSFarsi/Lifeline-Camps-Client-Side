@@ -17,9 +17,12 @@ const CampCard = ({camp}) => {
                 <p className="text-sm text-gray-500 mb-2">Healthcare Professional: {camp.healthcareProfessionalName}</p>
                 <p className="text-sm text-gray-500 mb-4">Participants: {camp.participantCount}</p>
 
-                <Link to={`/camp-details/${camp._id}`} className="text-blue-600 hover:underline text-sm">
-                  View Camp Details
-                </Link>
+                <Link
+          to={`/camp-details/${camp._id}`}
+          className="inline-block text-center bg-[#B354A6] text-white px-4 py-2 rounded-md  "
+        >
+          View Camp Details
+        </Link>
               </div>
             </div>
   )

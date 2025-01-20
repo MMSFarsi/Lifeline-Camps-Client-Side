@@ -1,13 +1,16 @@
 import useAxiosSecure from '@/Hooks/useAxiosSecure';
 import useRegCamp from '@/Hooks/useRegCamp';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const ManageRegisteredCamps = () => {
   const axiosSecure=useAxiosSecure()
   const [regCamp,refetch] = useRegCamp();
   const handleCancel=async(camp)=>{
     const res = await axiosSecure.delete(`/applicant/${camp._id}`)
-      console.log(res.data);
+      if(res.data.deletedCount>0){
+        toast.success("Camp Application Rejected")
+      }
       refetch()
       
   }
@@ -16,16 +19,11 @@ const ManageRegisteredCamps = () => {
     axiosSecure.patch(`/applicant/${id}`, { paymentConfirmed: true })
       .then((response) => {
         if (response.data.modifiedCount > 0) {
-          alert('Confirmation status updated successfully');
+         toast.success('Confirmation Status Updated')
           refetch(); 
-        } else {
-          alert('Failed to update confirmation status');
         }
       })
-      .catch((error) => {
-        console.error('Error updating confirmation status:', error);
-        alert('An error occurred while updating confirmation status');
-      });
+     
   };
   
 
@@ -81,7 +79,7 @@ const ManageRegisteredCamps = () => {
                     {camp.paymentStatus && camp.paymentConfirmed ? (
                       <h2 className='text-green-600 font-semibold'>Confirmed</h2>
                     ) : camp.paymentStatus && !camp.paymentConfirmed ? (
-                      <button  onClick={() => handleConfirm(camp._id)} className="px-1 bg-blue-500 font-medium text-white py-2 rounded-md">Click To Confirm</button>
+                      <button  onClick={() => handleConfirm(camp._id)} className="px-1 bg-[#B354A6] font-medium text-white py-2 rounded-md">Click To Confirm</button>
                     ) : (
                       <p className='text-red-600 font-semibold '>Pending</p>
                     )}

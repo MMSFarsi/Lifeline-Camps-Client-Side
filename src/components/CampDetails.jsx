@@ -21,10 +21,14 @@ const CampDetails = () => {
     }
 
     const toggleModal = () => {
+        if(!user){
+            return toast.error('Please Login to Continue')
+        }
         setIsModalOpen(!isModalOpen);
     };
 
     const onSubmit = (data) => {
+       
         const participantData = {
             ...data,
             campId: camp._id,
@@ -42,7 +46,7 @@ const CampDetails = () => {
         .then(res=>{
             console.log(res.data);
             if(res.data.insertedId){
-                toast.success('Camp Registration Successfully Submit.Go to Dashboard & Payment Now.')
+                toast.success('Camp Registered.')
             }
             refetch()
         })
@@ -53,33 +57,48 @@ const CampDetails = () => {
     };
 
     return (
-        <div className="py-10 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-semibold text-center text-gray-800 mb-8">{camp.campName}</h2>
+        <div className="py-10 bg-[#FCF8F8] min-h-screen">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">
+    {camp.campName}
+  </h2>
 
-                <div className="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src={camp.image} alt={camp.campName} className="w-full h-48 object-cover" />
-                    <div className="p-6">
-                        <p className="text-sm text-gray-500 mb-2">{camp.location}</p>
-                        <p className="text-sm text-gray-500 mb-2">{new Date(camp.dateTime).toLocaleString()}</p>
-                        <p className="text-lg text-gray-800 font-bold mb-2">${camp.campFees}</p>
-                        <p className="text-sm text-gray-500 mb-2">
-                            Healthcare Professional: {camp.healthcareProfessionalName}
-                        </p>
-                        <p className="text-sm text-gray-500 mb-2">Participants: {camp.participantCount}</p>
-                        <p className="text-sm text-gray-600 mb-4">{camp.description}</p>
+  <div className="bg-white  lg:min-h-72 lg:max-h-80 rounded-lg overflow-hidden flex flex-col md:flex-row">
+  
+    <img
+      src={camp.image}
+      alt={camp.campName}
+      className="md:w-1/2 h-fit object-cover"
+    />
 
-                        <button
-                            onClick={toggleModal}
-                            className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
-                        >
-                            Join Now
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            {/* Modal */}
+    <div className="p-6 flex-1">
+      <p className="text-sm text-gray-500 mb-2">{camp.location}</p>
+      <p className="text-sm text-gray-500 mb-2">
+        {new Date(camp.dateTime).toLocaleString()}
+      </p>
+      <p className="text-lg text-gray-800 font-bold mb-2">${camp.campFees}</p>
+      <p className="text-sm text-gray-500 mb-2">
+        Healthcare Professional: {camp.healthcareProfessionalName}
+      </p>
+      <p className="text-sm text-gray-500 mb-2">
+        Participants: {camp.participantCount}
+      </p>
+      <p className="text-sm text-gray-600 mb-4">{camp.description}</p>
+
+      <button
+        onClick={toggleModal}
+      
+        className="px-6 py-2 bg-[#B354A6] text-white font-semibold rounded-lg "
+      >
+        Join Now
+      </button>
+    </div>
+  </div>
+</div>
+
+
+       
             {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center z-50  bg-black bg-opacity-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md">
@@ -130,7 +149,7 @@ const CampDetails = () => {
                                     <label className="block text-sm font-medium text-gray-600">Your Name</label>
                                     <input
                                         type="text"
-                                        defaultValue={user.displayName}
+                                        defaultValue={user?.displayName}
                                         readOnly
                                         placeholder="Your Name"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg"
@@ -140,7 +159,7 @@ const CampDetails = () => {
                                     <label className="block text-sm font-medium text-gray-600">Your Email</label>
                                     <input
                                         type="email"
-                                       defaultValue={user.email}
+                                       defaultValue={user?.email}
                                        readOnly
                                         placeholder="Your Email"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg"
@@ -199,7 +218,7 @@ const CampDetails = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+                                    className="px-6 py-2 bg-[#B354A6] text-white font-semibold rounded-lg "
                                 >
                                     Submit
                                 </button>

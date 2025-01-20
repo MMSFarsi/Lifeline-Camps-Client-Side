@@ -5,12 +5,14 @@ import { AuthContext } from '@/provider/AuthProvider'
 import SocialLogin from '@/Shared/SocialLogin'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const axiosPublic=useAxiosPublic()
   const { register, handleSubmit, formState: { errors }, } = useForm()
   const { createUser, updateUserProfile } = useContext(AuthContext)
+  const navigate=useNavigate()
   const onSubmit = (data) => {
     console.log(data)
     createUser(data.email, data.password)
@@ -25,7 +27,11 @@ const Register = () => {
         }
         axiosPublic.post('/users',userInfo)
         .then(res=>{
-          console.log(res.data);
+     
+          if(res.data.insertedId){
+            toast.success('Registration Successfull')
+          }
+          navigate('/')
         })
       })
     })

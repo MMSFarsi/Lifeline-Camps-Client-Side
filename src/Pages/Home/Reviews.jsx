@@ -11,18 +11,17 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    // Fetch reviews from the API
     axiosPublic.get('/reviews').then((res) => {
       setReviews(res.data);
     });
   }, []);
 
   return (
-    <div className="py-10 bg-gray-50">
-      <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">User Reviews</h2>
+    <div className="py-10 ">
+      <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">Reviews</h2>
       <Swiper
         modules={[Navigation, Pagination]}
-        navigation
+        
         pagination={{ clickable: true }}
         spaceBetween={30}
         slidesPerView={1}
@@ -35,20 +34,20 @@ const Reviews = () => {
       >
         {reviews.map((review) => (
           <SwiperSlide key={review._id} className="p-6">
-            <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-start">
-              {/* Review */}
-              <p className="text-gray-600 italic mb-4">{review.review}</p>
-              {/* Rating */}
+            <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-start h-[250px]">
+            
+              <p className="text-gray-600  overflow-y-scroll italic h-28 mb-4">{review.review}</p>
+           
               <p className="text-yellow-500 font-bold mb-4">Rating: {review.rating} ⭐</p>
-              {/* Image and Name */}
+          
               <div className="flex items-center">
                 <img
                   src={review.authImg}
                   alt={review.reviewAuthor}
-                  className="w-14 h-14 rounded-full border border-gray-200"
+                  className="w-8 h-8 rounded-full border border-gray-200"
                 />
                 <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-gray-800">{review.reviewAuthor}</h3>
+                  <h3 className="text-sm font-semibold text-gray-800">{review.reviewAuthor}</h3>
                 </div>
               </div>
             </div>

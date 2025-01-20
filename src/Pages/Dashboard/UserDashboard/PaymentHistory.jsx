@@ -14,24 +14,24 @@ const PaymentHistory = () => {
   });
 
   return (
-    <div className="p-8">
-      <h3 className="text-3xl font-semibold mb-4">Payment History</h3>
-      <p className="text-lg mb-6">
+    <div className="p-2 lg:p-8">
+      <h3 className="text-xl lg:text-3xl text-center font-semibold mb-2">Payment History</h3>
+      <p className="text-base text-center lg:text-lg mb-6">
         <strong>Total Payments:</strong> {payment.length}
       </p>
 
       {payment.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-md">
+          <table className="w-full lg:w-full table-auto bg-white border border-gray-200 shadow-md rounded-md">
             <thead className="bg-gray-200">
               <tr>
-                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-1 lg:px-6 py-1 lg:py-3 text-left text-xs font-medium text-gray-700">
                   Transaction ID
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-1 lg:px-6 py-1 lg:py-3 text-left text-xs font-medium text-gray-700">
                   Price ($)
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                <th className="px-1 lg:px-6 py-1 lg:py-3 text-left text-xs font-medium text-gray-700">
                   Date
                 </th>
               </tr>
@@ -44,13 +44,13 @@ const PaymentHistory = () => {
                     index % 2 === 0 ? "bg-gray-50" : "bg-white"
                   } hover:bg-gray-100`}
                 >
-                  <td className="px-6 py-4 text-sm text-gray-800">
+                  <td className="px-1 lg:px-6 py-1 lg:py-3 text-[10px] lg:text-base text-gray-800">
                     {item.transactionId}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-800">
+                  <td className="px-1 lg:px-6 py-1 lg:py-3 text-[10px] lg:text-base text-gray-800">
                     ${item.price.toFixed(2)}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-800">
+                  <td className="px-1 lg:px-6 py-1 lg:py-3 text-[10px] lg:text-base text-gray-800">
                     {new Date(item.date).toLocaleString()}
                   </td>
                 </tr>

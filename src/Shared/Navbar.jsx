@@ -50,7 +50,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Menu */}
+     
           <div className="hidden md:flex space-x-6">
             <NavLink
               to="/"
@@ -68,10 +68,18 @@ const Navbar = () => {
             >
               Available Camps
             </NavLink>
+            <NavLink
+              to="/aboutUs"
+              className={({ isActive }) =>
+                isActive ? 'text-[#B354A6] font-semibold' : 'text-gray-600 hover:text-[#B354A6]'
+              }
+            >
+              About Us
+            </NavLink>
 
           </div>
 
-          {/* Profile Dropdown or Mobile Menu Toggle */}
+         
           {
             !user ? <Link to="/login">
               <Button className="px-7  font-semibold py-5 rounded-2xl bg-[#B354A6] text-white">Join Us</Button>
@@ -108,7 +116,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+ 
       <Drawer
         title="Menu"
         placement="right"

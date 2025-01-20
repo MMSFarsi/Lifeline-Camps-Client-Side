@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import useAuth from '@/Hooks/useAuth';
 import SocialLogin from "@/Shared/SocialLogin";
+import toast from "react-hot-toast";
 
 
 const Login = () => {
@@ -24,6 +25,9 @@ const Login = () => {
         signInUser(email,password)
         .then(result=>{
           console.log(result.user)
+          if(result.user){
+            toast.success('Login Successfull')
+          }
          
           navigate('/')
         })
@@ -37,8 +41,8 @@ const Login = () => {
    
    <div className="min-h-screen flex items-center justify-center">
       <div className="card w-[300px] lg:w-[400px]  p-6 border-[#676767] border bg-white shadow-lg rounded-lg">
-        <h2 className="text-sm font-bold text-[#676767] mb-6">
-          Dive into a world of fascinating stories, tips, and insights.
+        <h2 className="text-xl text-center font-bold text-[#676767] mb-6">
+        CampConnect
         </h2>
         <form onSubmit={handleLogin}  className="space-y-4">
           <div>

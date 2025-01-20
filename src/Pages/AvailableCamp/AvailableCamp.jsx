@@ -6,9 +6,9 @@ const AvailableCamp = () => {
   const [camps]=useCamp()
   return (
     <div>
-       <div className="py-10 bg-gray-50">
+       <div className="py-10 bg-[#FCF8F8] ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold text-center text-gray-800 mb-8">Avaiable Camp</h2>
+        <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">Available Camp</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
           {

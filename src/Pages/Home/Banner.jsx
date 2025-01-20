@@ -27,7 +27,7 @@ const Banner = () => {
             <div className="relative h-fit sm:h-[60vh] md:h-[80vh] lg:h-[85vh]">
               <Fade duration={1000} triggerOnce>
                 <img
-                  src="https://i.ibb.co.com/3SzqcDY/men-women-hospital-gowns-study.jpg"
+                  src="https://i.ibb.co.com/CQkm0Wy/medical-banner-with-doctor-wearing-stethoscope.jpg"
                   alt='ok'
                   className="object-cover w-full h-full"
                 />
@@ -66,7 +66,7 @@ const Banner = () => {
             <div className="relative h-fit sm:h-[60vh] md:h-[80vh] lg:h-[85vh]">
               <Fade duration={1000} triggerOnce>
                 <img
-                  src="https://i.ibb.co.com/6RTfZKQ/shopper-chemist-store-checkout-counter-using-credit-card-purchase-pharmaceutical-products-friendly-c.jpg"
+                  src="https://i.ibb.co.com/BZ5kRn7/medical-banner-with-doctor-holding-stethoscope.jpg"
                   alt='ok'
                   className="object-cover w-full h-full"
                 />
@@ -82,12 +82,12 @@ const Banner = () => {
                 
                   <Slide direction="up" duration={1000} triggerOnce>
                     <h2 className="mb-6 text-base sm:text-xl md:text-2xl lg:text-3xl font-bold">
-                    Effortless Medical Camp Management
+                    Where Care Meets Community
                     </h2>
                   </Slide>
                   <Slide direction="up" duration={1000} triggerOnce>
                     <span className="flex items-center mb-1 text-xs sm:text-sm md:text-base">
-                    Organize, manage, and track all your medical camps in one place with our cutting-edge solution.
+                    Explore and register for medical camps that transform lives—yours and others.
                     </span>
                   </Slide>
                   {/* <div className="text-xs sm:text-sm md:text-base">
@@ -105,7 +105,7 @@ const Banner = () => {
             <div className="relative h-fit sm:h-[60vh] md:h-[80vh] lg:h-[85vh]">
               <Fade duration={1000} triggerOnce>
                 <img
-                  src="https://i.ibb.co.com/Qnkp8ZV/paramedics-examining-injured-boy.jpg"
+                  src="https://i.ibb.co.com/cFBFC9n/medical-discussion.jpg"
                   alt='ok'
                   className="object-cover w-full h-full"
                 />
@@ -121,12 +121,13 @@ const Banner = () => {
                 
                   <Slide direction="up" duration={1000} triggerOnce>
                     <h2 className="mb-6 text-base sm:text-xl md:text-2xl lg:text-3xl font-bold">
-                    Effortless Medical Camp Management
+                    Lifeline Camps
+
                     </h2>
                   </Slide>
                   <Slide direction="up" duration={1000} triggerOnce>
                     <span className="flex items-center mb-1 text-xs sm:text-sm md:text-base">
-                    Organize, manage, and track all your medical camps in one place with our cutting-edge solution.
+                    Bringing care closer to you—because every life deserves a lifeline.
                     </span>
                   </Slide>
                   {/* <div className="text-xs sm:text-sm md:text-base">

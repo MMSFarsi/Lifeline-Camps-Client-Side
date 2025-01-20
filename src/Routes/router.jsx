@@ -20,6 +20,7 @@ import PrivateRoute from "./PrivateRoute.jsx/PrivateRoute";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import Payment from "@/Pages/Dashboard/Payment/Payment";
 import AddReview from "@/Pages/Dashboard/UserDashboard/AddReview";
+import About from "@/Pages/About";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
         {
           path: '/camp-details/:id',
           element:<CampDetails></CampDetails>
+        },
+        {
+          path: '/aboutUs',
+          element:<About></About>
         },
        
       ]
