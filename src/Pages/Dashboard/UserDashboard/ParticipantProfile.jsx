@@ -19,11 +19,11 @@ const ParticipantProfile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center  py-10">
-       <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">
+    <div className="min-h-screen  flex flex-col items-center  py-10">
+       <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">
           Participant Profile
         </h2>
-      <div className=" lg:p-10   max-w-lg w-full">
+      <div className=" p-5 lg:p-10 border-2 border-blue-500 shadow-md bg-white  w-[400px]  lg:w-[500px]">
        
         <div className="flex items-center flex-col space-x-6 mb-6">
           <img

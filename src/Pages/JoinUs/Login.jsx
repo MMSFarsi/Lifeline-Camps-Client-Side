@@ -8,30 +8,27 @@ import toast from "react-hot-toast";
 
 
 const Login = () => {
-  
-  
-    const navigate =useNavigate()
-   
+  const navigate = useNavigate();
+  const { signInUser } = useAuth();
 
-    const {signInUser}=useAuth()
-    const handleLogin=(e)=>{
-        e.preventDefault()
-        const form=e.target
-        const email=form.email.value;
-        const password=form.password.value;
-        const loginData={email,password}
-        console.log(loginData);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-        signInUser(email,password)
-        .then(result=>{
-          console.log(result.user)
-          if(result.user){
-            toast.success('Login Successfull')
-          }
-         
-          navigate('/')
-        })
-    }
+    signInUser(email, password)
+      .then((result) => {
+        if (result.user) {
+          toast.success("Login Successful");
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        const errorMessage = error.message || "Failed to login ";
+        toast.error(errorMessage);
+      });
+  };
 
 
 

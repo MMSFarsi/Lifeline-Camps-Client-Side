@@ -19,14 +19,14 @@ const RegisteredCamps = () => {
   return (
     <div className="py-5 lg:py-10">
       <div className="lg:px-8">
-        <h2 className="text-2xl text-center font-semibold text-gray-800 mb-6">
+        <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">
           Registered Camps: {regCamp.length}
         </h2>
 
         {regCamp.length === 0 ? (
           <p className="text-gray-600">You have not registered for any camps yet.</p>
         ) : (
-          <div className="overflow-x-auto"> {/* Enable horizontal scrolling on small screens */}
+          <div className="overflow-x-auto"> 
             <table className="w-full border-collapse border border-gray-200 bg-white shadow-md rounded-lg">
               <thead className="text-xs">
                 <tr className="bg-gray-100">

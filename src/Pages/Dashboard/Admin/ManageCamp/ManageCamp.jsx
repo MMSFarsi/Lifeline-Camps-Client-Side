@@ -1,6 +1,7 @@
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import useCamp from "@/Hooks/useCamp";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const ManageCamp = () => {
   const [camps, refetch] = useCamp();
@@ -44,9 +45,11 @@ const ManageCamp = () => {
                   <td className="px-4 py-2 text-sm text-gray-800">{camp.location}</td>
                   <td className="px-4 py-2 text-sm text-gray-800">{camp.healthcareProfessionalName}</td>
                   <td className="px-4 py-2">
-                    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none">
+                   <Link to={`/dashboard/updateCamp/${camp._id}`}>
+                   <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none">
                       Update
                     </button>
+                   </Link>
                   </td>
                   <td className="px-4 py-2">
                     <button

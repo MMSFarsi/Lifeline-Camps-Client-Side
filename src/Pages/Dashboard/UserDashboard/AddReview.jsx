@@ -31,8 +31,8 @@ const AddReview = () => {
   return (
     <div className="max-w-lg mx-auto p-6  rounded-lg">
       <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">Add a Review</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+      <form className='p-5 mx-auto lg:p-10 border-2 border-blue-500 shadow-md bg-white  w-[400px]  lg:w-[500px]' onSubmit={handleSubmit}>
+        <div className="mb-4 ">
           <label className="block text-gray-700 font-medium mb-2" htmlFor="review">
             Your Review
           </label>

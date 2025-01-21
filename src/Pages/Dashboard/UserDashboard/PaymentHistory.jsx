@@ -15,14 +15,14 @@ const PaymentHistory = () => {
 
   return (
     <div className="p-2 lg:p-8">
-      <h3 className="text-xl lg:text-3xl text-center font-semibold mb-2">Payment History</h3>
-      <p className="text-base text-center lg:text-lg mb-6">
+      <h3 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">Payment History</h3>
+      <p className="text-base text-center lg:text-lg mb-4">
         <strong>Total Payments:</strong> {payment.length}
       </p>
 
       {payment.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="w-full lg:w-full table-auto bg-white border border-gray-200 shadow-md rounded-md">
+          <table className="w-full border-collapse border border-gray-200 bg-white shadow-md rounded-lg">
             <thead className="bg-gray-200">
               <tr>
                 <th className="px-1 lg:px-6 py-1 lg:py-3 text-left text-xs font-medium text-gray-700">
@@ -40,9 +40,7 @@ const PaymentHistory = () => {
               {payment.map((item, index) => (
                 <tr
                   key={item.transactionId}
-                  className={`${
-                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
-                  } hover:bg-gray-100`}
+               
                 >
                   <td className="px-1 lg:px-6 py-1 lg:py-3 text-[10px] lg:text-base text-gray-800">
                     {item.transactionId}

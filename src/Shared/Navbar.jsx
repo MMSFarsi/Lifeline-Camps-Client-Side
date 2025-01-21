@@ -90,6 +90,7 @@ const Navbar = () => {
                     <img
                       src={user.photoURL || "https://via.placeholder.com/150"}
                       alt="User Profile"
+                    referrerPolicy="no-referrer"
                       className="w-10 h-10 rounded-full border cursor-pointer"
                     />
                   </Dropdown>
@@ -138,6 +139,13 @@ const Navbar = () => {
             onClick={() => setDrawerOpen(false)}
           >
             Available Camps
+          </Link>
+          <Link
+            to="/aboutUs"
+            className="text-gray-600 hover:text-green-500"
+            onClick={() => setDrawerOpen(false)}
+          >
+            About Us
           </Link>
           {!user ? (
             <Link
