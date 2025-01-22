@@ -40,14 +40,14 @@ const Reviews = () => {
               <p className="text-gray-600 overflow-hidden italic h-28 mb-4">
                 {review.review}
               </p>
-
-        
-              <ReactStars count={5}  value={review.rating}
+              <ReactStars
+                count={5}
+                value={review.rating}
                 size={24}
-                edit={false} isHalf={true}
+                edit={false}
+                isHalf={true}
                 activeColor="#ffd700"
               />
-
               <div className="flex items-center mt-4">
                 <img
                   src={review.authImg}
@@ -65,6 +65,11 @@ const Reviews = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+
+      <style>
+        {`.swiper-pagination { margin:-10px }  `}
+      </style>
     </div>
   );
 };

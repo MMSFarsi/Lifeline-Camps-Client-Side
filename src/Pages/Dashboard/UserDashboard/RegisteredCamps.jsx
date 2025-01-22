@@ -69,7 +69,8 @@ const RegisteredCamps = () => {
                       )}
                     </td>
                     <td className="border border-gray-200 px-4 py-2">
-                      {camp.paymentConfirmed ? 'Confirmed' : 'Pending'}
+                      {camp.paymentConfirmed ? <h2 className='text-green-600 font-semibold'>Confirmed</h2> : <h2 className='text-red-600'>
+                        Pending </h2>}
                     </td>
                     <td className="border border-gray-200 px-4 py-2 text-center space-x-2">
                       {camp.reviewStatus ? (

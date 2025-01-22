@@ -1,3 +1,4 @@
+import Loading from "@/components/Loading";
 import useAdmin from "@/Hooks/useAdmin";
 import useAuth from "@/Hooks/useAuth";
 import { Navigate } from "react-router-dom";
@@ -9,7 +10,7 @@ const AdminRoute = ({children}) => {
     const [isAdmin,isAdminLoading]=useAdmin()
    
     if(loading || isAdminLoading){
-        return  <img src="https://i.ibb.co.com/Gvvsc4p/66.gif" alt="" />
+        return  <Loading></Loading>
     }
     if(user && isAdmin){
         return children

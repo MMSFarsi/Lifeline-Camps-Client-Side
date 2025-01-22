@@ -58,7 +58,7 @@ const ParticipantProfile = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your name"
-                  className="input input-bordered w-full focus:ring-2 focus:ring-blue-500"
+                  className="input input-bordered border-2 rounded p-2 w-full focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -69,7 +69,7 @@ const ParticipantProfile = () => {
                   value={photoURL}
                   onChange={(e) => setPhotoURL(e.target.value)}
                   placeholder="Enter photo URL"
-                  className="input input-bordered w-full focus:ring-2 focus:ring-blue-500"
+                  className="input input-bordered border-2 rounded p-2 w-full focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
