@@ -13,8 +13,8 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logOut()
-      .then(() => console.log("User logged out"))
-      .catch((error) => console.error(error.message));
+      // .then(() => console.log("User logged out"))
+      // .catch((error) => console.error(error.message));
   };
 
   const menu = (
@@ -40,13 +40,13 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
 
           <div className="flex items-center space-x-2">
             <Link to="/" className="flex items-center space-x-2">
 
-              <span className="text-2xl font-bold text-gray-800">Lifeline Camps</span>
+              <span className="text-xl lg:text-2xl font-bold text-gray-800">Lifeline Camps</span>
             </Link>
           </div>
 
@@ -82,7 +82,7 @@ const Navbar = () => {
          
           {
             !user ? <Link to="/login">
-              <Button className="px-7  font-semibold py-5 rounded-2xl bg-[#B354A6] text-white">Join Us</Button>
+              <Button className="px-2 lg:px-7  font-semibold py-2 lg:py-5 rounded-xl bg-[#B354A6] text-white">Join Us</Button>
             </Link> : <>
               <div className="flex items-center space-x-4">
                 {user ? (
@@ -149,7 +149,7 @@ const Navbar = () => {
           </Link>
           {!user ? (
             <Link
-              to="/join"
+              to="/login"
               onClick={() => setDrawerOpen(false)}
             >
               <Button type="primary">Join Us</Button>

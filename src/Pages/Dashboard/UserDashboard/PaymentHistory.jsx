@@ -14,7 +14,7 @@ const PaymentHistory = () => {
   });
 
   return (
-    <div className="p-2 lg:p-8">
+    <div className="p-2 min-h-screen lg:p-8">
       <h3 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">Payment History</h3>
       <p className="text-base text-center lg:text-lg mb-4">
         <strong>Total Payments:</strong> {payment.length}
@@ -57,7 +57,7 @@ const PaymentHistory = () => {
           </table>
         </div>
       ) : (
-        <p className="text-gray-600">No payments found.</p>
+        <p className="text-gray-600 text-center">No payments found.</p>
       )}
     </div>
   );

@@ -10,7 +10,7 @@ const CampCard = ({camp}) => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800">{camp.campName}</h3>
+                <h3 className="text-base lg:text-xl mb-2 font-semibold text-gray-800">{camp.campName}</h3>
                 <p className="text-sm text-gray-500 mb-2">{camp.location}</p>
                 <p className="text-sm text-gray-500 mb-2">{camp.dateTime}</p>
                 <p className="text-lg text-gray-800 font-bold mb-2">${camp.campFees}</p>
@@ -19,7 +19,7 @@ const CampCard = ({camp}) => {
 
                 <Link
           to={`/camp-details/${camp._id}`}
-          className="inline-block text-center bg-[#B354A6] text-white px-4 py-2 rounded-md  "
+          className="inline-block text-[12px] text-center bg-[#B354A6] text-white px-4 py-2 rounded-md  "
         >
           View Camp Details
         </Link>

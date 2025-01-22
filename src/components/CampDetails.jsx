@@ -44,7 +44,7 @@ const CampDetails = () => {
         };
         axiosPublic.post('/applicant',participantData)
         .then(res=>{
-            console.log(res.data);
+          
             if(res.data.insertedId){
                 toast.success('Camp Registered.')
             }
@@ -102,8 +102,8 @@ const CampDetails = () => {
             {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center z-50  bg-black bg-opacity-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md">
-                        <h3 className="text-lg font-semibold text-gray-800 mb-4">Register for Camp</h3>
-                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                        <h3 className="text-lg text-center font-semibold text-gray-800 mb-4">Register for Camp</h3>
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 text-[12px]">
                             <div className="flex gap-3 justify-between">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-600">Camp Name</label>
@@ -111,7 +111,7 @@ const CampDetails = () => {
                                         type="text"
                                         value={camp.campName}
                                         readOnly
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100"
+                                        className="w-full px-4 py-2 border  border-gray-300 rounded-lg bg-gray-100"
                                     />
                                 </div>
                                 <div>
@@ -135,7 +135,7 @@ const CampDetails = () => {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-600">Healthcare Professional</label>
+                                    <label className="block lg:text-sm font-medium text-gray-600">Healthcare Professional</label>
                                     <input
                                         type="text"
                                         value={camp.healthcareProfessionalName}

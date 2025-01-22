@@ -19,7 +19,7 @@ const AddReview = () => {
     const reviewData = { reviewAuthor:user?.displayName,authImg:user?.photoURL,regCampId:id,review, rating };
     axiosPublic.post('/reviews', reviewData)
     .then(res=>{
-      console.log(res.data);
+  
       if(res.data.result.insertedId){
         toast.success('Review Added')
         navigate('/dashboard/registeredCamps')

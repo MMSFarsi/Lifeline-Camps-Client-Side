@@ -14,10 +14,10 @@ const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext)
   const navigate=useNavigate()
   const onSubmit = (data) => {
-    console.log(data)
+  
     createUser(data.email, data.password)
     .then(result=>{
-      console.log(result);
+   
       updateUserProfile(data.name, data.photo)
       .then(()=>{
         // save to db
@@ -93,7 +93,7 @@ const Register = () => {
             className="w-full px-4 py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
 
           />
-          {errors.password && <span>Password Must be at least charcater or less than 20</span>}
+          {errors.password && <span>Password must be at least 6 characters long, include uppercase, lowercase, a number, and a special character</span>}
         </div>
         <div>
           <button className="w-full py-2 px-4 bg-[#484848] text-white font-semibold rounded-lg transition">

@@ -16,7 +16,7 @@ const AddCamp = () => {
   const [imagePreview, setImagePreview] = useState(null);
 
   const onSubmit = async (data) => {
-    console.log(data);
+   
 
     // Upload image to imgBB and get URL
     const imageFile = { image: data.image[0] };
@@ -41,14 +41,14 @@ const AddCamp = () => {
       };
 
       const campRes = await axiosSecure.post('/camps', campDetails);
-      console.log(campRes.data);
+  
 
       if (campRes.data.insertedId) {
         toast.success('Camp Added Successfully');
         reset();
       }
     }
-    console.log('image url', res.data);
+  
   };
 
   const handleImagePreview = (e) => {
@@ -59,7 +59,7 @@ const AddCamp = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-10  rounded-lg shadow-lg mt-10">
+    <div className="max-w-2xl mx-auto p-3  rounded-lg mt-10">
       <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">Add A Camp</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
     

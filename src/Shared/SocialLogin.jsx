@@ -1,6 +1,7 @@
 
 import useAuth from '@/Hooks/useAuth'
 import useAxiosPublic from '@/Hooks/useAxiosPublic'
+import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
 const SocialLogin = () => {
@@ -10,14 +11,14 @@ const SocialLogin = () => {
     const handleGoogle=()=>{
         signWithGoogle()
         .then(result=>{
-            console.log(result);
+       
             const userInfo={
                 email: result.user.email,
                 name:result.user.displayName
             }
             axiosPublic.post('/users',userInfo)
             .then(res=>{
-                console.log(res.data);
+              toast.success('Login Successfull')
                 navigate('/')
             })
         })
@@ -36,7 +37,7 @@ const SocialLogin = () => {
                   alt="google-logo"
                 />
               </span>
-              <span className="font-medium text-gray-800">Register with Google</span>
+              <span className="font-medium text-gray-800">Continue with Google</span>
             </button>
           </div>
   )

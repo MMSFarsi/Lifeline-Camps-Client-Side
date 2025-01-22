@@ -18,13 +18,13 @@ const CheckoutForm = () => {
   const {user}=useAuth()
   const navigate=useNavigate()
   const payableMoney=regCamp.find(camp => camp._id === id);
-  console.log(payableMoney?.campFees  );
+  
 
   useEffect(()=>{
   if(payableMoney.campFees>0){
     axiosSecure.post('/create-payment-intent',{price:payableMoney?.campFees})
     .then(res=>{
-      console.log(res.data.clientSecret);
+   
       setClientSecret(res.data.clientSecret)
     })
   }
@@ -44,10 +44,10 @@ const CheckoutForm = () => {
         type:'card',card
     })
     if(error){
-        console.log('payment error',error);
+        
         setError(error.message)
     }else{
-        console.log('payment method',paymentMethod);
+      
         setError('')
     }
 
@@ -61,11 +61,11 @@ const CheckoutForm = () => {
       }
     })
     if(confirmError){
-      console.log('confirm error');
+     
     }else{
-      console.log(paymentIntent);
+  
       if(paymentIntent.status==='succeeded'){
-        console.log('trans success',paymentIntent.id);
+       
         setTranId(paymentIntent.id)
 
         const payment={

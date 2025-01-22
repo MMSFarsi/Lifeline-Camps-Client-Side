@@ -16,7 +16,7 @@ const Banner = () => {
         modules={[Navigation, Pagination, A11y, Autoplay]}
         spaceBetween={10}
         slidesPerView={1}
-        navigation={true}
+   
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         loop={true}
@@ -24,7 +24,7 @@ const Banner = () => {
       >
         
           <SwiperSlide>
-            <div className="relative h-fit sm:h-[60vh] md:h-[80vh] lg:h-[85vh]">
+            <div className="relative h-fit sm:h-[60vh] md:h-[300px] lg:h-[530px]">
               <Fade duration={1000} triggerOnce>
                 <img
                   src="https://i.ibb.co.com/CQkm0Wy/medical-banner-with-doctor-wearing-stethoscope.jpg"
@@ -34,11 +34,7 @@ const Banner = () => {
               </Fade>
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center">
                 <div className="ml-4 sm:ml-8 md:ml-12 lg:ml-16 w-full sm:w-[400px] md:w-[500px] lg:w-[600px] text-white px-4 sm:px-6">
-                  {/* <Slide direction="up" duration={1000} triggerOnce>
-                    <span className="bg-green-500 text-white font-semibold px-4 py-1 rounded-sm text-xs sm:text-sm md:text-base">
-                      OKAY
-                    </span>
-                  </Slide> */}
+              
                   <br />
                 
                   <Slide direction="up" duration={1000} triggerOnce>
@@ -51,19 +47,13 @@ const Banner = () => {
                     Organize, manage, and track all your medical camps in one place with our cutting-edge solution.
                     </span>
                   </Slide>
-                  {/* <div className="text-xs sm:text-sm md:text-base">
-                    <Slide direction="up" duration={1000} triggerOnce>
-                      <span className="flex gap-1 items-center">
-                       SALMAN
-                      </span>
-                    </Slide>
-                  </div> */}
+             
                 </div>
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative h-fit sm:h-[60vh] md:h-[80vh] lg:h-[85vh]">
+          <div className="relative h-fit sm:h-[60vh] md:h-[300px] lg:h-[530px]">
               <Fade duration={1000} triggerOnce>
                 <img
                   src="https://i.ibb.co.com/BZ5kRn7/medical-banner-with-doctor-holding-stethoscope.jpg"
@@ -73,11 +63,7 @@ const Banner = () => {
               </Fade>
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center">
                 <div className="ml-4 sm:ml-8 md:ml-12 lg:ml-16 w-full sm:w-[400px] md:w-[500px] lg:w-[600px] text-white px-4 sm:px-6">
-                  {/* <Slide direction="up" duration={1000} triggerOnce>
-                    <span className="bg-green-500 text-white font-semibold px-4 py-1 rounded-sm text-xs sm:text-sm md:text-base">
-                      OKAY
-                    </span>
-                  </Slide> */}
+              
                   <br />
                 
                   <Slide direction="up" duration={1000} triggerOnce>
@@ -90,19 +76,13 @@ const Banner = () => {
                     Explore and register for medical camps that transform lives—yours and others.
                     </span>
                   </Slide>
-                  {/* <div className="text-xs sm:text-sm md:text-base">
-                    <Slide direction="up" duration={1000} triggerOnce>
-                      <span className="flex gap-1 items-center">
-                       SALMAN
-                      </span>
-                    </Slide>
-                  </div> */}
+              
                 </div>
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative h-fit sm:h-[60vh] md:h-[80vh] lg:h-[85vh]">
+          <div className="relative h-fit sm:h-[60vh] md:h-[300px] lg:h-[530px]">
               <Fade duration={1000} triggerOnce>
                 <img
                   src="https://i.ibb.co.com/cFBFC9n/medical-discussion.jpg"
@@ -112,11 +92,7 @@ const Banner = () => {
               </Fade>
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center">
                 <div className="ml-4 sm:ml-8 md:ml-12 lg:ml-16 w-full sm:w-[400px] md:w-[500px] lg:w-[600px] text-white px-4 sm:px-6">
-                  {/* <Slide direction="up" duration={1000} triggerOnce>
-                    <span className="bg-green-500 text-white font-semibold px-4 py-1 rounded-sm text-xs sm:text-sm md:text-base">
-                      OKAY
-                    </span>
-                  </Slide> */}
+              
                   <br />
                 
                   <Slide direction="up" duration={1000} triggerOnce>
@@ -130,13 +106,7 @@ const Banner = () => {
                     Bringing care closer to you—because every life deserves a lifeline.
                     </span>
                   </Slide>
-                  {/* <div className="text-xs sm:text-sm md:text-base">
-                    <Slide direction="up" duration={1000} triggerOnce>
-                      <span className="flex gap-1 items-center">
-                       SALMAN
-                      </span>
-                    </Slide>
-                  </div> */}
+                 
                 </div>
               </div>
             </div>

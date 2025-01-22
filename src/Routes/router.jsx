@@ -1,5 +1,5 @@
 import CampDetails from "@/components/CampDetails";
-import { Button } from "@/components/ui/button";
+
 import Dashboard from "@/Layout/Dashboard";
 import MainLayout from "@/Layout/MainLayout";
 import AvailableCamp from "@/Pages/AvailableCamp/AvailableCamp";
@@ -22,11 +22,19 @@ import Payment from "@/Pages/Dashboard/Payment/Payment";
 import AddReview from "@/Pages/Dashboard/UserDashboard/AddReview";
 import About from "@/Pages/About";
 import UpdateCamp from "@/Pages/Dashboard/Admin/UpdateCamp/UpdateCamp";
+import ScrollTop from "@/components/ScrollTop";
+import ErrorPage from "@/Shared/ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
-      element:<MainLayout></MainLayout>,
+      element: (
+        <>
+          <ScrollTop /> 
+          <MainLayout />
+        </>
+      ),
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
@@ -74,7 +82,7 @@ export const router = createBrowserRouter([
         {
           path:'updateCamp/:id',
           element:<AdminRoute><UpdateCamp></UpdateCamp></AdminRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/camp-details/${params.id}`)
+          loader:({params})=>fetch(`https://assignment-12-server-one-henna.vercel.app/camp-details/${params.id}`)
         },
         {
           path:'manageRegisteredCamps',

@@ -23,7 +23,7 @@ const AdminProfile = () => {
        <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">
           Admin Profile
         </h2>
-      <div className=" p-5 lg:p-10 border-2 border-blue-500 shadow-md bg-white  w-[400px]  lg:w-[500px]">
+      <div className=" p-5 lg:p-10 border-2 border-blue-500 shadow-md bg-white  w-[300px]  lg:w-[500px]">
        
         <div className="flex items-center justify-center flex-col space-x-6 mb-6">
           <img

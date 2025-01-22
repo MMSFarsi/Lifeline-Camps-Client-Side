@@ -9,7 +9,7 @@ const RegisteredCamps = () => {
 
   const handleCancel = async (camp) => {
     const res = await axiosSecure.delete(`/applicant/${camp._id}`);
-    console.log(res.data);
+ 
     if (res.data.deletedCount > 0) {
       toast.success('Registration Withdraw Successfull')
     }
@@ -17,14 +17,14 @@ const RegisteredCamps = () => {
   };
 
   return (
-    <div className="py-5 lg:py-10">
+    <div className="py-5 min-h-screen lg:py-10">
       <div className="lg:px-8">
         <h2 className="text-xl lg:text-3xl font-semibold text-center text-[#B354A6] mb-12">
           Registered Camps: {regCamp.length}
         </h2>
 
         {regCamp.length === 0 ? (
-          <p className="text-gray-600">You have not registered for any camps yet.</p>
+          <p className="text-gray-600 text-center">You have not registered for any camps yet.</p>
         ) : (
           <div className="overflow-x-auto"> 
             <table className="w-full border-collapse border border-gray-200 bg-white shadow-md rounded-lg">
