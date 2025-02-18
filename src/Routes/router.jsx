@@ -24,6 +24,7 @@ import About from "@/Pages/About";
 import UpdateCamp from "@/Pages/Dashboard/Admin/UpdateCamp/UpdateCamp";
 import ScrollTop from "@/components/ScrollTop";
 import ErrorPage from "@/Shared/ErrorPage";
+import ContactUs from "@/Pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
         {
           path: '/aboutUs',
           element:<About></About>
+        },
+        {
+          path: '/contactUs',
+          element:<ContactUs></ContactUs>
         },
        
       ]

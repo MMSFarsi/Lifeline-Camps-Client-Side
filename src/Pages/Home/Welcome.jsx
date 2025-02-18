@@ -15,7 +15,7 @@ const Welcome = () => {
           Providing top-quality medical care with expert doctors and advanced healthcare solutions.
         </p>
 
-        <h2 className="text-xl font-semibold text-[#B354A6] mt-4">   Dr. Saiful Islam Saif   </h2>
+        <h2 className="text-xl font-semibold text-[#B354A6] mt-4"> Dr. Saiful Islam Saif   </h2>
         <p className="text-md text-gray-500">Expert in Surgery & Critical Care</p>
       </div>
     </div>

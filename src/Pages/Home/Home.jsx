@@ -6,6 +6,7 @@ import PopularCamps from './PopularCamps'
 import Reviews from './Reviews'
 import Ads from './Ads'
 import Welcome from './Welcome'
+import OurDoctors from './OurDoctors'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Ads></Ads>
       <Welcome></Welcome>
       <PopularCamps></PopularCamps>
+      <OurDoctors></OurDoctors>
       <Reviews></Reviews>
       <Promotion></Promotion>
       <HealthTips></HealthTips>
