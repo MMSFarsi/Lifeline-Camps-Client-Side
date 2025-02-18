@@ -40,9 +40,7 @@ const AvailableCamp = () => {
         </h2>
 
         <div className="mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <input
-            type="text"
-            placeholder="Search camps by name, location, or date"
+          <input type="text" placeholder="Search camps by name, location, or date"
             className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -63,15 +61,9 @@ const AvailableCamp = () => {
           </button>
         </div>
         <div
-          className={`grid ${
-            isTwoColumnLayout
-              ? 'grid-cols-1 sm:grid-cols-2'
-              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-          } gap-8`}
+          className={`grid ${ isTwoColumnLayout ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-8`}
         >
-          {sortedCamps.map((camp) => (
-            <CampCard key={camp._id} camp={camp} />
-          ))}
+          {sortedCamps.map((camp) => ( <CampCard key={camp._id} camp={camp} />  ))}
         </div>
       </div>
     </div>

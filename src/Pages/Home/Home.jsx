@@ -1,4 +1,5 @@
 
+import Promotion from '@/components/Promotion'
 import Banner from './Banner'
 import HealthTips from './HealthTips'
 import PopularCamps from './PopularCamps'
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner></Banner>
       <PopularCamps></PopularCamps>
       <Reviews></Reviews>
+      <Promotion></Promotion>
       <HealthTips></HealthTips>
     </div>
   )
