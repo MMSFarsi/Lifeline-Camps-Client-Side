@@ -147,7 +147,7 @@ const Dashboard = () => {
         )}
       </div>
 
-      <div className="hidden lg:block w-56 min-h-screen bg-gray-900 text-gray-100 shadow-lg">
+      <div className="hidden lg:block w-56 min-h-screen bg-gray-800 text-gray-100 shadow-lg">
         <div className="p-6">
           <h2 className="text-2xl font-semibold mt-5 mb-6 text-center">Dashboard</h2>
           <ul className="space-y-4">
