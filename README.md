@@ -96,4 +96,4 @@ Run `npm run dev` to run the project locally.
 - Organizer email: admincamp@gmail.com
 - Organizer Password: MirBd2024@
 - Live Site: http://lifelines-camps.web.app/
-- Server Site Code: https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-MMSFarsi
+- Server Site Code: https://github.com/MMSFarsi/Lifeline-Camps-Server-Side
