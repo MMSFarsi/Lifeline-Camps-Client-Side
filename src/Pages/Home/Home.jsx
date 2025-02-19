@@ -7,6 +7,7 @@ import Reviews from './Reviews'
 import Ads from './Ads'
 import Welcome from './Welcome'
 import OurDoctors from './OurDoctors'
+import Newsletter from './Newsletter'
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Reviews></Reviews>
       <Promotion></Promotion>
       <HealthTips></HealthTips>
+      <Newsletter></Newsletter>
     </div>
   )
 }

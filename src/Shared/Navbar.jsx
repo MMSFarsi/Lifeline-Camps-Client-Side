@@ -68,6 +68,16 @@ const Navbar = () => {
             >
               Available Camps
             </NavLink>
+            {
+          user && isAdmin && <NavLink  className={({ isActive }) =>
+            isActive ? 'text-[#B354A6] font-semibold' : 'text-gray-600 hover:text-[#B354A6]'
+          } to='/dashboard/organizerProfile'>DashBoard</NavLink>
+        }
+        {
+          user && !isAdmin &&  <NavLink  className={({ isActive }) =>
+            isActive ? 'text-[#B354A6] font-semibold' : 'text-gray-600 hover:text-[#B354A6]'
+          } to='/dashboard/participantProfile'>DashBoard</NavLink>
+        }
             <NavLink
               to="/aboutUs"
               className={({ isActive }) =>
@@ -154,6 +164,13 @@ const Navbar = () => {
             onClick={() => setDrawerOpen(false)}
           >
             About Us
+          </Link>
+          <Link
+            to="/contactUs"
+            className="text-gray-600 hover:text-green-500"
+            onClick={() => setDrawerOpen(false)}
+          >
+            Contact Us
           </Link>
           {!user ? (
             <Link
